@@ -1,12 +1,12 @@
 import React from "react";
-import { buyCake } from "../redux";
+import { buyIceCream } from "../redux";
 import { connect } from "react-redux";
 
-const CakeContainer = (props) => {
+const IceCreamContainer = (props) => {
   return (
     <div>
-      <h2>Number of cakes - {props.numOfCakes} </h2>
-      <button onClick={props.buyCake}>Buy Cake</button>
+      <h2>Number of icecreams - {props.numOfIceCreams} </h2>
+      <button onClick={props.buyIceCream}>Buy Icecream</button>
     </div>
   );
 };
@@ -14,17 +14,17 @@ const CakeContainer = (props) => {
 // With this the state of our redux store is mapped to a prop in our component.
 const mapStateToProps = (state) => {
   return {
-    numOfCakes: state.cake.numOfCakes,
+    numOfIceCreams: state.iceCream.numOfIceCreams,
   };
 };
 
 // With this dispatch of an action creator is mapped to a prop in our component.
 const mapDispatchToProps = (dispatch) => {
   return {
-    buyCake: () => dispatch(buyCake()),
+    buyIceCream: () => dispatch(buyIceCream()),
   };
 };
 
 // `connect` connects state and dispatch to our component.
 // With this our component is now subscribed to the store.
-export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(IceCreamContainer);
